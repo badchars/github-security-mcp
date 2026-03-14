@@ -1,0 +1,21 @@
+{
+  "name": "github-security-mcp",
+  "version": "0.1.0",
+  "description": "GitHub security posture audit tools for AI agents — organization, repository, Actions, secrets, supply chain analysis via MCP",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun --watch run src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "@octokit/rest": "^21.1.1",
+    "@octokit/graphql": "^8.2.1",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "@types/bun": "^1.2.5"
+  }
+}
