@@ -5,3 +5,4 @@ bun.lock
 .env.*
 *.log
 .DS_Store
+test-run.ts
