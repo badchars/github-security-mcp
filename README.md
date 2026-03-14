@@ -1,13 +1,10 @@
 <p align="center">
   <br>
-  <pre align="center">
-     ██████╗ ██╗████████╗██╗  ██╗██╗   ██╗██████╗     ███████╗███████╗ ██████╗
-    ██╔════╝ ██║╚══██╔══╝██║  ██║██║   ██║██╔══██╗    ██╔════╝██╔════╝██╔════╝
-    ██║  ███╗██║   ██║   ███████║██║   ██║██████╔╝    ███████╗█████╗  ██║
-    ██║   ██║██║   ██║   ██╔══██║██║   ██║██╔══██╗    ╚════██║██╔══╝  ██║
-    ╚██████╔╝██║   ██║   ██║  ██║╚██████╔╝██████╔╝    ███████║███████╗╚██████╗
-     ╚═════╝ ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═════╝     ╚══════╝╚══════╝ ╚═════╝
-  </pre>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/badchars/github-security-mcp/main/.github/banner-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/badchars/github-security-mcp/main/.github/banner-light.svg">
+    <img alt="github-security-mcp" src="https://raw.githubusercontent.com/badchars/github-security-mcp/main/.github/banner-dark.svg" width="700">
+  </picture>
 </p>
 
 <h3 align="center">GitHub security posture analysis for AI agents.</h3>
