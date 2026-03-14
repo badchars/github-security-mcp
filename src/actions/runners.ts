@@ -98,16 +98,22 @@ export async function checkRunners(
           });
         }
       } catch (err: any) {
-        if (err.status === 404 || err.status === 403) {
+        const msg = err.message ?? String(err);
+        const isNotOrg = err.status === 404 || msg.includes("Not Found");
+        if (isNotOrg || err.status === 403) {
           results.push({
             checkId: "ACT-005",
-            title: "Self-hosted runner check — insufficient permissions",
+            title: "Self-hosted runner check — org not accessible",
             severity: "HIGH",
-            status: "ERROR",
+            status: "NOT_APPLICABLE",
             resource,
             category: "actions",
-            details: `Cannot list self-hosted runners for org '${org}': ${err.message}`,
-            remediation: "Ensure the token has admin:org scope to list self-hosted runners.",
+            details: isNotOrg
+              ? `'${org}' is not an organization or does not exist.`
+              : `Cannot list self-hosted runners for org '${org}': insufficient permissions.`,
+            remediation: isNotOrg
+              ? "Provide a valid GitHub organization name."
+              : "Ensure the token has admin:org scope to list self-hosted runners.",
           });
         } else {
           throw err;

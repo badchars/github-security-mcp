@@ -82,7 +82,7 @@ export async function checkDependabotUpdates(
 
     if (!hasDependabotConfig) {
       results.push({
-        checkId: "SUP-002",
+        checkId: "SUP-002b",
         title: "Dependabot version updates not configured",
         severity: "HIGH",
         status: "FAIL",
@@ -101,7 +101,7 @@ export async function checkDependabotUpdates(
       });
     } else {
       results.push({
-        checkId: "SUP-002",
+        checkId: "SUP-002b",
         title: "Dependabot version updates configured",
         severity: "HIGH",
         status: "PASS",

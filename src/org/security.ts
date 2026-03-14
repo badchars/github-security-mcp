@@ -71,15 +71,20 @@ export async function checkOrgSecurity(
     });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
+    const isNotOrg = message.includes("404") || message.includes("Not Found");
     results.push({
       checkId: "ORG-001",
       title: "Two-factor authentication not enforced",
       severity: "CRITICAL",
-      status: "ERROR",
+      status: isNotOrg ? "NOT_APPLICABLE" : "ERROR",
       resource: `org/${org}`,
       category: "org",
-      details: `Failed to retrieve organization settings for '${org}': ${message}`,
-      remediation: "Verify the token has org:read scope and the organization name is correct.",
+      details: isNotOrg
+        ? `'${org}' is not an organization or does not exist. Organization checks require a valid GitHub organization.`
+        : `Failed to retrieve organization settings for '${org}': ${message}`,
+      remediation: isNotOrg
+        ? "Provide a valid GitHub organization name."
+        : "Verify the token has org:read scope and the organization name is correct.",
     });
   }
 

@@ -54,6 +54,9 @@ export async function checkOrgSso(
     // 403 means org is not on Enterprise plan (SAML requires Enterprise Cloud)
     const isNotEnterprise =
       message.includes("403") ||
+      message.includes("404") ||
+      message.includes("Not Found") ||
+      message.includes("Could not resolve") ||
       message.includes("Must have admin rights") ||
       message.includes("SAML") ||
       message.includes("not available");
