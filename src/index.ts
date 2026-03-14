@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { startMcpStdio } from "./protocol/mcp-server.js";
 import { GitHubClientFactory } from "./github/client.js";
 import type { ToolContext, CheckResult } from "./types/index.js";

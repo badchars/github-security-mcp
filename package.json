@@ -3,11 +3,38 @@
   "version": "0.1.0",
   "description": "GitHub security posture audit tools for AI agents — organization, repository, Actions, secrets, supply chain analysis via MCP",
   "type": "module",
-  "main": "src/index.ts",
-  "scripts": {
-    "start": "bun run src/index.ts",
-    "dev": "bun --watch run src/index.ts"
+  "main": "dist/index.js",
+  "bin": {
+    "github-security-mcp": "dist/index.js"
   },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "dev": "bun --watch run src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "github",
+    "security",
+    "audit",
+    "github-actions",
+    "devsecops",
+    "supply-chain",
+    "secret-scanning",
+    "ai-agent"
+  ],
+  "author": "Orhan Yildirim (https://github.com/badchars)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/badchars/github-security-mcp.git"
+  },
+  "homepage": "https://github.com/badchars/github-security-mcp",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
     "@octokit/rest": "^21.1.1",
@@ -15,7 +42,7 @@
     "zod": "^3.24.4"
   },
   "devDependencies": {
-    "typescript": "^5.8.2",
-    "@types/bun": "^1.2.5"
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
   }
 }
